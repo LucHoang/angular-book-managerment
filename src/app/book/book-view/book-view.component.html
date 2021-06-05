@@ -1,0 +1,85 @@
+<!--<h1>Chi tiết sách</h1>-->
+<!--<form [formGroup]="bookForm">-->
+<!--&lt;!&ndash;  (ngSubmit)="deleteBook(id)">&ndash;&gt;-->
+<!--  <table>-->
+<!--    &lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <td>Mã sách:</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <td><input type="number" formControlName="id"></td>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--    <tr>-->
+<!--      <td>Tên sách:</td>-->
+<!--      <td><input type="text" formControlName="title" readonly></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Tên tác giả:</td>-->
+<!--      <td><input type="text" formControlName="author" readonly></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Mô tả:</td>-->
+<!--      &lt;!&ndash;      <td><input type="text" formControlName="description"></td>&ndash;&gt;-->
+<!--      <td><textarea formControlName="description" rows="5" cols="50" readonly></textarea></td>-->
+<!--    </tr>-->
+<!--&lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td></td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td><button>Xoá</button></td>&ndash;&gt;-->
+<!--&lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--  </table>-->
+<!--</form>-->
+
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<form class="form-horizontal" [formGroup]="bookForm">
+  <fieldset>
+
+    <!-- Form Name -->
+    <div style="margin-top: auto">
+      <legend style="margin-top: 40px; text-align: center">BOOK DETAIL</legend>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name">Name</label>
+      <div class="col-md-4">
+        <input id="product_name" name="name" class="form-control input-md" required="" type="text" readonly formControlName="title">
+
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_categorie">Author</label>
+      <div class="col-md-4">
+        <input id="product_categorie" name="quantity" class="form-control" required="" type="text" readonly formControlName="author">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name_fr">Description</label>
+      <div class="col-md-4">
+        <!--        <input id="product_name_fr" name="price" class="form-control input-md" required="" type="text" VALUE="${product.getPrice()}" disabled formControlName="author">-->
+        <textarea id="product_name_fr" class="form-control input-md" required="" formControlName="description" rows="5" cols="50" readonly></textarea>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">-->
+            <label class="col-md-4 control-label" for="singlebutton">Action</label>
+            <div class="col-md-4">
+              <a [routerLink]="['/book/edit',id]" class="button button" style="background-color: #4CAF50">Edit</a>
+              <a [routerLink]="['/book/delete',id]" class="button button" style="background-color: red">Delete</a>
+              <a [routerLink]="['/book/list']" class="button button" style="background-color: #666666">Back</a>
+            </div>
+          </div>
+
+  </fieldset>
+</form>
+
+</body>

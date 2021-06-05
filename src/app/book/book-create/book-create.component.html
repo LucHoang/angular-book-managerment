@@ -1,0 +1,108 @@
+<!--<h1>Tạo sách mới</h1>-->
+<!--<form [formGroup]="bookForm" (ngSubmit)="submit()">-->
+<!--  <table>-->
+<!--&lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td>Mã sách:</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td><input type="number" formControlName="id"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--    <tr>-->
+<!--      <td>Tên sách:</td>-->
+<!--      <td><input type="text" formControlName="title"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Tên tác giả:</td>-->
+<!--      <td><input type="text" formControlName="author"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Mô tả:</td>-->
+<!--&lt;!&ndash;      <td><input type="text" formControlName="description"></td>&ndash;&gt;-->
+<!--      <td><textarea formControlName="description" rows="5" cols="50"></textarea></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td></td>-->
+<!--      <td><button>Tạo mới</button></td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--</form>-->
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+<form class="form-horizontal" [formGroup]="bookForm" (ngSubmit)="submit()" novalidate>
+  <!--      enctype="multipart/form-data">-->
+  <fieldset>
+    <!-- Form Name -->
+    <div style="margin-top: auto">
+      <legend style="margin-top: 40px; text-align: center">ADD NEW BOOK</legend>
+    </div>
+    <!-- Text input-->
+    <div class="notify" style="text-align: center; color: #4CAF50">
+<!--      <div th:if="${success}">-->
+<!--        <span th:text="${success}"></span>-->
+<!--      </div>-->
+    </div>
+
+    <div style="color: green; text-align: center"
+          *ngIf="success">
+          Successful new creation
+    </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name">Name</label>
+      <div class="col-md-4">
+        <input id="product_name" name="name" class="form-control input-md" required type="text" formControlName="title">
+        <span style="color: red"
+          *ngIf="!bookForm.controls.title?.valid && (bookForm.controls.title?.dirty
+    ||bookForm.controls.title?.touched)">
+          This field cannot be left blank!
+        </span>
+<!--        <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>-->
+      </div>
+    </div>
+
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name_fr">Author</label>
+      <div class="col-md-4">
+        <input id="product_name_fr" name="area" class="form-control input-md" required="" type="text" formControlName="author">
+        <span style="color: red"
+              *ngIf="!bookForm.controls.author?.valid && (bookForm.controls.author?.dirty
+    ||bookForm.controls.author?.touched)">
+          This field cannot be left blank!
+        </span>
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_categorie">Description</label>
+      <div class="col-md-4">
+<!--        <input id="product_categorie" name="population" class="form-control" required="" type="text" formControlName="author">-->
+        <textarea id="product_categorie" name="population" class="form-control" required="" formControlName="description" rows="5" cols="50"></textarea>
+        <span style="color: red"
+              *ngIf="!bookForm.controls.description?.valid && (bookForm.controls.description?.dirty
+    ||bookForm.controls.description?.touched)">
+          This field cannot be left blank!
+        </span>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="singlebutton">Action</label>
+      <div class="col-md-4">
+        <button [disabled]="!bookForm.valid" class="button button">Create</button>
+        <a [routerLink]="['/book/list']" class="button button" style="background-color: #666666">Back</a>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+
+</body>
