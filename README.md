@@ -1,27 +1,8 @@
-# BookExam
+# Book managerment
+## Chuẩn bị
+- Clone dự án https://bit.ly/30uBo5Z và thực hiện theo các bước hướng dẫn trong file README.md để chạy server back-end phục vụ cho ứng dụng.
+- Lưu ý: Có thể sử dụng POSTMAN để kiểm tra xem các API có hoạt động tốt hay không.
+## Mục đích
+- Tạo một ứng dụng front-end dựa trên nền tảng Angular để quản lý sách. Ứng dụng này sẽ giao tiếp với phần server back-end như đã chuẩn bị sẵn ở trên qua RESTful.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![image](https://user-images.githubusercontent.com/76985354/120894554-3f2db280-c643-11eb-9c8b-9c56988d4293.png)
