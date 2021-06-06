@@ -5,4 +5,4 @@
 ## Mục đích
 - Tạo một ứng dụng front-end dựa trên nền tảng Angular để quản lý sách. Ứng dụng này sẽ giao tiếp với phần server back-end như đã chuẩn bị sẵn ở trên qua RESTful.
 
-![image](https://user-images.githubusercontent.com/76985354/120894554-3f2db280-c643-11eb-9c8b-9c56988d4293.png)
+![image](https://user-images.githubusercontent.com/76985354/120929473-5c31b680-c713-11eb-9982-28d314143af2.png)
