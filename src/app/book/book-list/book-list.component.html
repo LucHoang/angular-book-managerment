@@ -52,23 +52,27 @@
           <div class="card-body row no-gutters align-items-center"><a routerLink="/book/create" class="button button" style="text-decoration: none">+ Add new book</a></div>
           <!--          <%&#45;&#45;          <div class="col-sm-8"><h2>Product <b>Details</b></h2></div>&#45;&#45;%>-->
 
-<!--          <div class="col-sm-4">-->
-<!--            <form th:action="@{/product/search}" method="get">-->
-<!--              <div class="card-body row no-gutters align-items-center">-->
-<!--                <div class="col">-->
-<!--                  <input class="form-control form-control-lg form-control-borderless" name="text" type="search"-->
-<!--                         placeholder="Search">-->
-<!--                </div>-->
-<!--                &lt;!&ndash;end of col&ndash;&gt;-->
-<!--                <div class="col-auto">-->
 
-<!--                  <button class="button button" type="submit" style="background-color: #0397d6">-->
-<!--                    Search-->
-<!--                  </button>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </form>-->
-<!--          </div>-->
+          <div class="col-sm-4">
+            <form>
+              <div class="card-body row no-gutters align-items-center">
+                <div class="col">
+                  <input class="form-control form-control-lg form-control-borderless" name="text" type="search"
+                         placeholder="Search" #searchValue (keyup)="search(searchValue.value)">
+                </div>
+                <!--end of col-->
+                <div class="col-auto">
+
+                  <button class="button button" type="submit" style="background-color: #0397d6"
+                          (click)="search(searchValue.value)">
+                    Search
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
         </div>
       </div>
       <p>Total book: {{totalBook}}</p>
@@ -82,7 +86,7 @@
 <!--          <th>Quantity</th>-->
 <!--          <th>Color</th>-->
 <!--          <th>Image</th>-->
-<!--          <th>Action</th>-->
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
