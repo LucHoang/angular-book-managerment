@@ -39,11 +39,13 @@ export class BookCreateComponent implements OnInit {
     });
   }
 
-  checkField(value: string) {
+  checkField() {
     // tslint:disable-next-line:triple-equals
-    if (value == '') {
-      this.error = true;
-      this.success = false;
-    }
+    // if (value == '') {
+    //   this.error = true;
+    //   this.success = false;
+    // }
+    this.error = true;
+    this.success = false;
   }
 }

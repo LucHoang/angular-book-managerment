@@ -101,7 +101,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label">Action</label>
       <div class="col-md-4" *ngIf="!bookForm.valid">
-        <button (click)="checkField(inputField.value)" class="button button">Create</button>
+        <button (click)="checkField()" class="button button">Create</button>
         <a [routerLink]="['/book/list']" class="button button" style="background-color: #666666">Back</a>
       </div>
       <div class="col-md-4" *ngIf="bookForm.valid">
