@@ -16,6 +16,7 @@ export class BookCreateComponent implements OnInit {
   });
 
   success = false;
+  error = false;
 
   constructor(private bookService: BookService) {
   }
@@ -31,10 +32,18 @@ export class BookCreateComponent implements OnInit {
       this.bookForm.reset();
       // alert('Tạo thành công');
       this.success = true;
+      this.error = false;
     }, e => {
       console.log(e);
       this.success = false;
     });
   }
 
+  checkField(value: string) {
+    // tslint:disable-next-line:triple-equals
+    if (value == '') {
+      this.error = true;
+      this.success = false;
+    }
+  }
 }

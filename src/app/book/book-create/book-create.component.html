@@ -33,7 +33,7 @@
 
 </head>
 <body>
-<form class="form-horizontal" [formGroup]="bookForm" (ngSubmit)="submit()" novalidate>
+<form class="form-horizontal" [formGroup]="bookForm" novalidate>
   <!--      enctype="multipart/form-data">-->
   <fieldset>
     <!-- Form Name -->
@@ -42,20 +42,22 @@
     </div>
     <!-- Text input-->
     <div class="notify" style="text-align: center; color: #4CAF50">
-<!--      <div th:if="${success}">-->
-<!--        <span th:text="${success}"></span>-->
-<!--      </div>-->
     </div>
 
     <div style="color: green; text-align: center"
           *ngIf="success">
           Successful new creation
     </div>
+    <div style="color: red; text-align: center"
+         *ngIf="error">
+      Fields cannot be left blank!
+    </div>
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="product_name">Name</label>
       <div class="col-md-4">
-        <input id="product_name" name="name" class="form-control input-md" required type="text" formControlName="title">
+        <input id="product_name" name="name" class="form-control input-md" required type="text"
+               formControlName="title" #inputField>
         <span style="color: red"
           *ngIf="!bookForm.controls.title?.valid && (bookForm.controls.title?.dirty
     ||bookForm.controls.title?.touched)">
@@ -70,7 +72,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="product_name_fr">Author</label>
       <div class="col-md-4">
-        <input id="product_name_fr" name="area" class="form-control input-md" required="" type="text" formControlName="author">
+        <input id="product_name_fr" name="area" class="form-control input-md" required="" type="text"
+               formControlName="author" #inputField>
         <span style="color: red"
               *ngIf="!bookForm.controls.author?.valid && (bookForm.controls.author?.dirty
     ||bookForm.controls.author?.touched)">
@@ -84,7 +87,8 @@
       <label class="col-md-4 control-label" for="product_categorie">Description</label>
       <div class="col-md-4">
 <!--        <input id="product_categorie" name="population" class="form-control" required="" type="text" formControlName="author">-->
-        <textarea id="product_categorie" name="population" class="form-control" required="" formControlName="description" rows="5" cols="50"></textarea>
+        <textarea id="product_categorie" name="population" class="form-control" required=""
+                  formControlName="description" rows="5" cols="50" #inputField></textarea>
         <span style="color: red"
               *ngIf="!bookForm.controls.description?.valid && (bookForm.controls.description?.dirty
     ||bookForm.controls.description?.touched)">
@@ -95,9 +99,13 @@
 
     <!-- Button -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="singlebutton">Action</label>
-      <div class="col-md-4">
-        <button [disabled]="!bookForm.valid" class="button button">Create</button>
+      <label class="col-md-4 control-label">Action</label>
+      <div class="col-md-4" *ngIf="!bookForm.valid">
+        <button (click)="checkField(inputField.value)" class="button button">Create</button>
+        <a [routerLink]="['/book/list']" class="button button" style="background-color: #666666">Back</a>
+      </div>
+      <div class="col-md-4" *ngIf="bookForm.valid">
+        <button (click)="submit()" class="button button">Create</button>
         <a [routerLink]="['/book/list']" class="button button" style="background-color: #666666">Back</a>
       </div>
     </div>
